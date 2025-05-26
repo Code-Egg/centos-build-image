@@ -21,4 +21,4 @@ RUN dnf -y install \
 RUN dnf -y install virt-install
 RUN dnf -y install virt-manager
 
-ADD mock/templates /etc/mock/
+COPY mock/templates/ /etc/mock/templates/
