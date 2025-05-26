@@ -29,7 +29,8 @@ check_input(){
 }
 
 build_image(){
-    docker buildx build . --platform linux/amd64,linux/arm64 -t ${BUILDER}/${REPO}
+    docker buildx build . --platform linux/amd64 -t ${BUILDER}/${REPO}
+    #docker buildx build . --platform linux/amd64,linux/arm64 -t ${BUILDER}/${REPO}
 }
 
 push_image(){
@@ -45,7 +46,7 @@ main(){
     push_image ${OLS_VERSION} ${PHP_VERSION} ${TAG}
 }
 
-check_input ${1}
+#check_input ${1}
 while [ ! -z "${1}" ]; do
     case ${1} in
         -[hH] | -help | --help)
@@ -56,10 +57,7 @@ while [ ! -z "${1}" ]; do
             ;;       
         --push ) shift
             PUSH=true
-            ;;            
-        *) 
-            help_message
-            ;;              
+            ;;          
     esac
     shift
 done

@@ -3,6 +3,9 @@ FROM almalinux:10-kitten
 RUN dnf update && \
     dnf -y upgrade && \
     dnf -y install  \
+        epel-release
+
+RUN dnf -y install \
         mock \
         rpm-build \
         curl \
@@ -15,8 +18,9 @@ RUN dnf update && \
 RUN dnf -y install \
         qemu-img \
         qemu-kvm \
-        libvirt \
-        virt-install \
-        virt-manager
+        libvirt
 
-Add /etc/mock/* /etc/mock/*
+RUN dnf -y install virt-install
+RUN dnf -y install virt-manager
+
+Add /mock/templates /etc/mock/
