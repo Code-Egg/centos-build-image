@@ -1,9 +1,7 @@
 FROM almalinux:10-kitten
 
-RUN dnf update && \
-    dnf -y upgrade && \
-    dnf -y install  \
-        epel-release
+RUN dnf update && dnf -y upgrade
+RUN dnf -y install epel-release
 
 RUN dnf -y install \
         mock \
