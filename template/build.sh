@@ -29,8 +29,7 @@ check_input(){
 }
 
 build_image(){
-    docker buildx build . --platform linux/amd64 -t ${BUILDER}/${REPO}
-    #docker buildx build . --platform linux/amd64,linux/arm64 -t ${BUILDER}/${REPO}
+    docker buildx build . --platform linux/amd64,linux/arm64 -t ${BUILDER}/${REPO}
 }
 
 push_image(){
