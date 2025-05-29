@@ -23,3 +23,6 @@ RUN dnf -y install virt-manager
 
 COPY mock/templates/ /etc/mock/templates/
 COPY mock/ /etc/mock/
+COPY SHA1.pmod /etc/crypto-policies/policies/modules/
+
+RUN update-crypto-policies --set DEFAULT:SHA1

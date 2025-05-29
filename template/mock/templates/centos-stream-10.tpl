@@ -12,7 +12,7 @@ config_opts['dnf.conf'] = """
 [main]
 keepcache=1
 debuglevel=2
-reposdir=/dev/null
+#reposdir=/dev/null
 logfile=/var/log/yum.log
 retries=20
 obsoletes=1
