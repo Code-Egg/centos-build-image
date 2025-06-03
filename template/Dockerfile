@@ -22,6 +22,8 @@ RUN dnf -y install \
 RUN dnf -y install virt-install
 RUN dnf -y install virt-manager
 
+RUN ln -sf /usr/sbin/mock /usr/bin/mock
+
 COPY mock/templates/ /etc/mock/templates/
 COPY mock/ /etc/mock/
 COPY SHA1.pmod /etc/crypto-policies/policies/modules/
