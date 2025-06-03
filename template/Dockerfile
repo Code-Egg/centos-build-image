@@ -11,6 +11,7 @@ RUN dnf -y install \
         sudo \
         wget \
         unzip \
+        rsync \
         pigz
 
 RUN dnf -y install \
