@@ -6,13 +6,14 @@ RUN dnf -y install epel-release
 RUN dnf -y install \
         mock \
         rpm-build \
-        curl \
         git \
         sudo \
         wget \
         unzip \
         rsync \
         pigz
+
+RUN rpm -q curl || dnf install -y curl
 
 RUN dnf -y install \
         qemu-img \
