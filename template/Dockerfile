@@ -13,8 +13,6 @@ RUN dnf -y install \
         rsync \
         pigz
 
-RUN rpm -q curl || dnf install -y curl
-
 RUN dnf -y install \
         qemu-img \
         qemu-kvm \
