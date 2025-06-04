@@ -1,4 +1,4 @@
-FROM almalinux:10-kitten
+FROM almalinux:9.4
 
 RUN dnf update -y && dnf -y upgrade
 RUN dnf -y install epel-release
