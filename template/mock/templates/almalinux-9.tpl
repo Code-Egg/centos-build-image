@@ -171,4 +171,18 @@ enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
 
+[litespeed-dev]
+name=LiteSpeed Tech Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
+baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/$basearch/
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
+
+[litespeed-dev-update]
+name=LiteSpeed Tech Update Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
+baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/update/$basearch/
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
+
 """
