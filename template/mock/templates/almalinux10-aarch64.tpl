@@ -3,7 +3,7 @@ config_opts['dist'] = 'el10.alma'  # only useful for --resultdir variable subst
 config_opts['releasever'] = '10'
 config_opts['package_manager'] = 'dnf'
 config_opts['extra_chroot_dirs'] = [ '/run/lock', ]
-config_opts['bootstrap_image'] = 'quay.io/almalinuxorg/almalinux:9'
+config_opts['bootstrap_image'] = 'quay.io/almalinuxorg/almalinux:10'
 
 config_opts['dnf.conf'] = """
 [main]

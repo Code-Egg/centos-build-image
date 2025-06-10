@@ -3,7 +3,7 @@ config_opts['dist'] = 'el10.alma'  # only useful for --resultdir variable subst
 config_opts['releasever'] = '10'
 config_opts['package_manager'] = 'dnf'
 config_opts['extra_chroot_dirs'] = [ '/run/lock', ]
-config_opts['bootstrap_image'] = 'quay.io/almalinuxorg/almalinux:9'
+config_opts['bootstrap_image'] = 'quay.io/almalinuxorg/almalinux:10'
 
 config_opts['dnf.conf'] = """
 [main]
@@ -135,14 +135,14 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
 [litespeed-dev]
 name=LiteSpeed Tech Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
 baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/$basearch/
-enabled=0
+enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
 
 [litespeed-dev-update]
 name=LiteSpeed Tech Update Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
 baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/update/$basearch/
-enabled=0
+enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
 """
