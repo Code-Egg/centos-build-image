@@ -1,12 +1,9 @@
-config_opts['chroot_setup_cmd'] = 'install bash bzip2 centos-stream-release coreutils cpio diffutils findutils gawk glibc-minimal-langpack grep gzip info patch redhat-rpm-config rpm-build sed shadow-utils tar unzip util-linux which xz'
-config_opts['dist'] = 'el10'  # only useful for --resultdir variable subst
+config_opts['chroot_setup_cmd'] = 'install bash bzip2 coreutils cpio diffutils redhat-release findutils gawk glibc-minimal-langpack grep gzip info patch redhat-rpm-config rpm-build sed shadow-utils tar unzip util-linux which xz'
+config_opts['dist'] = 'el10.alma'  # only useful for --resultdir variable subst
 config_opts['releasever'] = '10'
 config_opts['package_manager'] = 'dnf'
 config_opts['extra_chroot_dirs'] = [ '/run/lock', ]
-config_opts['description'] = 'CentOS Stream 10'
-
-config_opts['bootstrap_image'] = 'quay.io/centos/centos:stream10-development'
-config_opts['bootstrap_image_ready'] = True
+config_opts['bootstrap_image'] = 'quay.io/almalinuxorg/almalinux:9'
 
 config_opts['dnf.conf'] = """
 [main]
@@ -27,16 +24,6 @@ protected_packages=
 skip_if_unavailable=False
 module_platform_id=platform:el10
 user_agent={{ user_agent }}
-
-{% if koji_primary_repo != None and koji_primary_repo != "centos-stream" %}
-[local-centos-stream]
-{% else %}
-[local]
-{% endif %}
-name=CentOS Stream $releasever - Koji Local - BUILDROOT ONLY!
-baseurl=https://kojihub.stream.centos.org/kojifiles/repos/c{{ releasever }}s-build/latest/$basearch/
-cost=2000
-enabled=0
 
 [baseos]
 name=CentOS Stream $releasever - BaseOS
@@ -141,6 +128,20 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
 [litespeed-update]
 name=LiteSpeed Tech Update Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
 baseurl=http://rpms.litespeedtech.com/centos/$releasever/update/$basearch/
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
+
+[litespeed-dev]
+name=LiteSpeed Tech Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
+baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/$basearch/
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
+
+[litespeed-dev-update]
+name=LiteSpeed Tech Update Repository for CentOS ${REPO_OS_VER} - ${REPO_ARCH}
+baseurl=http://repo-dev.litespeedtech.com/centos/$releasever/update/$basearch/
 enabled=0
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-litespeed
